@@ -1,0 +1,116 @@
+Q1. #include<bits/stdc++.h>
+using namespace std;
+void insertionSort(int a[], int n){
+    int ctr=0,flag=0;
+    for(int i=1;i<n;i++){
+        ctr++;
+        int j;
+        j=i-1;
+        int x=a[i];
+        while (j>-1 && a[j]>x){
+            ctr++;
+            a[j+1]=a[j];
+            flag++;
+            j--;
+        }
+        a[j+1]=x;
+    }
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+    cout<<" Shifts = "<<ctr<<endl;
+    cout<<"Comparison = "<<flag<<endl;
+}
+int main(){
+    int n;
+    cout<<"enter the no. of test cases"<<endl;
+    cin>>n;
+    while(n--)
+    {
+            int c;
+        cout<<"enter the no. of elements in an array"<<endl;
+     cin>>c;
+        int a[c];
+         for(int i=0;i<c;i++)
+         {
+            cin>>a[i];
+        }
+        insertionSort(a,c);
+    } 
+}
+
+Q2.
+#include <iostream>
+using namespace std;
+void Sel_Sort(int[], int);
+int main()
+{
+    int T;
+    cin >> T;
+    for (int i = 0; i < T; i++)
+    {
+        int n;
+        cin >> n;
+        int A[1000];
+        for (int j = 0; j < n; j++)
+        {
+            cin >> A[j];
+        }
+        Sel_Sort(A, n);
+    }
+}
+void Sel_Sort(int A[], int n)
+{
+    int comp = 0, swaps = 0;
+    int min, temp = 0;
+    for (int i = 0; i < n - 1; i++)
+    {
+        min = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            comp++;
+            if (A[min] > A[j])
+            {
+                min = j;
+            }
+        }
+        swaps++;
+        swap(A[min], A[i]);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << A[i] << " ";
+    }
+    cout << "\ncomparisons = " << comp << endl
+         << "swaps = " << swaps << endl;
+}
+
+Q3.
+#include<bits/stdc++.h>
+using namespace std;
+void findDuplicate(int a[], int x)
+{
+    for(int i=0;i<x;i++){
+        for(int j=i+1;j<x;j++){
+            if(a[i]==a[j]){
+                cout<<"YES"<<endl;
+            }
+            break;
+        }
+    }
+            cout<<"NO"<<endl;
+}
+int main(){
+    int n;
+    cin>>n;
+    while(n--){
+        int x;
+        cin>>x;
+        int a[x];
+        for(int i=0;i<x;i++){
+            cin>>a[i];
+        }
+        findDuplicate(a ,x);
+    }
+}
